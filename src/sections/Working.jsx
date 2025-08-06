@@ -1,39 +1,68 @@
-import React from 'react'
-import { planning } from '../export'
-import { motion } from 'framer-motion';
-import { slideUpVariants, zoomInVariants } from './animation';
+import { planning } from "../export";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 
 const Working = () => {
   return (
-    <div className='w-full bg-white'>
+    <section
+      id="working"
+      className="relative w-full bg-[#0E1825] py-[100px] px-6 lg:px-0 overflow-hidden"
+    >
       <motion.div
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         variants={slideUpVariants}
-        className='lg:w-[80%] w-[90%] m-auto py-[60px] flex flex-col justify-between items-center gap-[20px]'>
-        <motion.h1 variants={slideUpVariants} className=' text-yellow-500 text-2xl'>STEP BY STEP</motion.h1>
-        <motion.h1 variants={slideUpVariants} className='text-black uppercase text-[40px] font-bold text-center'>HOW IT'S WORKING</motion.h1>
-        <motion.div variants={slideUpVariants} className='w-[120px] h-[6px] bg-yellow-500'></motion.div>
+        className="relative z-10 lg:w-[80%] w-full max-w-[1200px] m-auto flex flex-col justify-center items-center gap-[30px]"
+      >
+        <motion.h2
+          variants={slideUpVariants}
+          viewport={{ once: true }}
+          className="text-[#D2243D] text-xl uppercase tracking-widest"
+        >
+          Step by Step
+        </motion.h2>
+        <motion.h1
+          variants={slideUpVariants}
+          viewport={{ once: true }}
+          className="text-white uppercase text-[36px] lg:text-[44px] font-extrabold text-center"
+        >
+          How It Works
+        </motion.h1>
+        <motion.div
+          variants={slideUpVariants}
+          viewport={{ once: true }}
+          className="w-[100px] h-[4px] bg-[#D2243D] rounded"
+        />
+
         <motion.div
           initial="hidden"
           whileInView="visible"
+          viewport={{ once: true }}
           variants={zoomInVariants}
-          className='w-full grid lg:grid-cols-4 grid-cols-1 justify-center items-start gap-[20px] mt-[30px]'>
-          {
-            planning.map((item, index) => (
-              <div key={index} className='flex flex-col justify-center items-center gap-5 border-2 border-yellow-500 rounded-md p-6'>
-                <div>
-                  <item.icon className='size-[80px] bg-yellow-500 hover:bg-black hover:fill-white p-4 rounded-full' />
-                </div>
-                <h1 className='text-2xl font-bold uppercase'>{item.title}</h1>
-                <p className='text-[20px] text-center text-gray-600'>{item.about}</p>
+          className="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 mt-[50px]"
+        >
+          {planning.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={zoomInVariants}
+              className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-white shadow-xl flex flex-col items-center gap-4 transition duration-300 hover:scale-[1.03]"
+            >
+              <div className="w-[80px] h-[80px] bg-[#D2243D] flex items-center justify-center rounded-full shadow-lg transition hover:bg-white hover:text-[#0E1825]">
+                <item.icon className="text-white text-3xl" />
               </div>
-            ))
-          }
+              <h3 className="text-xl font-semibold text-center uppercase">
+                {item.title}
+              </h3>
+              <p className="text-gray-300 text-center text-sm leading-relaxed">
+                {item.about}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
       </motion.div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
-export default Working
+export default Working;

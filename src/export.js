@@ -1,82 +1,69 @@
-import building from "../src/assets/building.svg";
-import construction from "../src/assets/construction.svg";
-import design from "../src/assets/design.svg";
-import document from "../src/assets/document.svg";
-import paint from "../src/assets/paint.svg";
-import support from "../src/assets/support.svg";
-
-import { IoDocumentTextSharp } from "react-icons/io5";
-import { MdOutlineDesignServices } from "react-icons/md";
-import { FaRegBuilding } from "react-icons/fa";
-import { FaSitemap } from "react-icons/fa";
+import {
+  FaCalculator,
+  FaProjectDiagram,
+  FaTools,
+  FaLifeRing,
+} from "react-icons/fa";
 
 import client1 from "../src/assets/client1.png";
 import client2 from "../src/assets/client2.png";
 import client3 from "../src/assets/client3.png";
 
+import { PiSecurityCamera } from "react-icons/pi";
+import { PiSpeakerHigh } from "react-icons/pi";
+import { GoLightBulb } from "react-icons/go";
+import { LuConciergeBell } from "react-icons/lu";
+import { TfiPanel } from "react-icons/tfi";
+import { LuPackageCheck } from "react-icons/lu";
+
 export const allservices = [
   {
-    icon: building,
-    title: "BUILDING RENOVATION",
-    about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Security Camera Installation",
+    about: "High-definition surveillance for peace of mind.",
+    details:
+      "We install, configure, and maintain smart surveillance systems for residential and commercial properties. Our solutions include motion detection, remote viewing, night vision, and integration with mobile apps. With cloud or local storage options and full HD recording, your property is always protected.",
+    icon: PiSecurityCamera,
+    bg: "../src/assets/camera_service.jpg",
   },
   {
-    icon: construction,
-    title: "CONSTRUCTION SERVICES",
-    about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Audio System Integration",
+    about: "Professional sound for homes and businesses.",
+    details:
+      "Our audio system services include surround sound installation, multi-room audio zones, and public announcement systems. We design custom setups for both entertainment and operational needs, ensuring clarity, balance, and smart control via mobile or tablet.",
+    icon: PiSpeakerHigh,
+    bg: "../src/assets/audio_service.jpg",
   },
   {
-    icon: design,
-    title: "DESIGN & PLANNING",
-    about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Indoor & Outdoor Lighting",
+    about: "Custom LED solutions for every space.",
+    details:
+      "We design and install indoor and outdoor lighting systems tailored to your needs—whether it’s ambiance, functionality, or security. Our solutions include smart switches, motion-triggered lights, pathway lighting, and energy-efficient LED conversions.",
+    icon: GoLightBulb,
+    bg: "../src/assets/lights_service.jpg",
   },
   {
-    icon: document,
-    title: "DOCUMENTATION",
-    about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Smart Doorbells & Intercoms",
+    about: "Modern access control made easy.",
+    details:
+      "Upgrade your entry points with smart video doorbells and audio/video intercoms. Enjoy features like real-time mobile alerts, 2-way communication, visitor logs, and remote door unlock from your phone.",
+    icon: LuConciergeBell,
+    bg: "../src/assets/doorbell_service.jpg",
   },
   {
-    icon: paint,
-    title: "INTERIOR DESIGN",
-    about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Electrical Panels & Wiring",
+    about: "Safe and certified electrical setups.",
+    details:
+      "We handle new panel installations, upgrades, and full wiring services for residential and commercial properties. All work meets current codes and safety standards. We also offer troubleshooting, circuit mapping, and breaker replacement.",
+    icon: TfiPanel,
+    bg: "../src/assets/electrical_panel.jpg",
   },
   {
-    icon: support,
-    title: "CUSTOMER SUPPORT",
-    about:
-      "Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-];
-
-export const planning = [
-  {
-    icon: IoDocumentTextSharp,
-    title: "planning",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
-  },
-  {
-    icon: MdOutlineDesignServices,
-    title: "design",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
-  },
-  {
-    icon: FaRegBuilding,
-    title: "building",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
-  },
-  {
-    icon: FaSitemap,
-    title: "finish",
-    about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
+    title: "Custom Surveillance Packages",
+    about: "Tailored systems for any property.",
+    details:
+      "Our surveillance packages are fully customizable to your layout, risk level, and budget. Options include indoor/outdoor cameras, dome or bullet cams, NVR/DVR systems, license plate capture, and mobile access. We offer complete consultation and maintenance plans.",
+    icon: LuPackageCheck,
+    bg: "../src/assets/custom_service.jpg",
   },
 ];
 
@@ -101,5 +88,32 @@ export const clients = [
     about:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
     post: "Builder",
+  },
+];
+
+export const planning = [
+  {
+    title: "Estimate",
+    about:
+      "We start with a free on-site or virtual consultation to understand your needs. Our team evaluates the scope, recommends ideal solutions, and provides a clear, competitive quote with no hidden fees.",
+    icon: FaCalculator,
+  },
+  {
+    title: "Plan",
+    about:
+      "Once approved, we design a custom installation plan tailored to your space, goals, and budget. We coordinate all technical requirements and scheduling to ensure a smooth process.",
+    icon: FaProjectDiagram,
+  },
+  {
+    title: "Install",
+    about:
+      "Our certified technicians handle the full installation of electrical systems, cameras, lighting, and smart components—always respecting safety codes and your property.",
+    icon: FaTools,
+  },
+  {
+    title: "Maintain",
+    about:
+      "We offer ongoing maintenance and support packages to keep your systems running at peak performance, including updates, inspections, and troubleshooting services.",
+    icon: FaLifeRing,
   },
 ];

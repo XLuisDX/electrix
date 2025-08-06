@@ -1,46 +1,118 @@
-import React from 'react'
-import heroimg from '../assets/heroimg.png'
-import backgroundImage from '../assets/homeimg.webp'
-import { motion } from 'framer-motion';
-import { slideUpVariants, zoomInVariants } from './animation';
+import backgroundImage from "../assets/homeimg.jpg";
+import { motion } from "framer-motion";
+import { slideUpVariants, zoomInVariants } from "./animation";
 
 const Hero = () => {
   return (
-    <div id='hero' className='bg-black w-full lg:h-[700px] h-fit m-auto pt-[60px] lg:pt-[0px] lg:px-[150px] px-[20px] flex justify-between items-center lg:flex-row flex-col lg:gap-5 gap-[50px] bg-cover bg-center' style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <section
+      id="hero"
+      className="relative w-full min-h-screen flex flex-col lg:flex-row justify-between items-center gap-10 px-6 lg:px-[150px] pt-[140px] pb-10 bg-cover bg-center overflow-hidden"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className="absolute inset-0 bg-[#0E1825]/70 z-0" />
+
+      {/* Decorative Shapes */}
+      <motion.div
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+        viewport={{ once: true }}
+        className="absolute top-10 left-10 w-28 h-28 bg-[#D2243D]/30 blur-2xl rounded-full z-0"
+      />
+      <motion.div
+        animate={{ x: [0, 20, 0] }}
+        transition={{ duration: 5, repeat: Infinity }}
+        viewport={{ once: true }}
+        className="absolute bottom-10 right-10 w-20 h-20 bg-white/10 blur-2xl rounded-full z-0"
+      />
+
+      {/* Left Text */}
       <motion.div
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         variants={slideUpVariants}
-        className=' lg:w-[60%] w-full flex flex-col justify-center items-start lg:gap-8 gap-4'>
-        <motion.h1
+        className="relative z-10 lg:w-[55%] w-full flex flex-col justify-center items-start gap-6 text-left"
+      >
+        <motion.h2
           variants={slideUpVariants}
-          className=' text-yellow-400 text-2xl'>WE ARE BUILDERS</motion.h1>
+          viewport={{ once: true }}
+          className="text-[#D2243D] text-xl font-semibold tracking-widest uppercase"
+        >
+          Powering Tennessee
+        </motion.h2>
         <motion.h1
+          viewport={{ once: true }}
           variants={slideUpVariants}
-          className='text-white uppercase text-[50px] font-bold'>we will build your dream</motion.h1>
-        <div className='w-[120px] h-[6px] bg-yellow-500'></div>
-        <p className='text-white text-[20px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis necessitatibus sunt suscipit impedit voluptatibus quibusdam molestias assumenda natus, rem tenetur?</p>
+          className="text-white uppercase text-[40px] lg:text-[54px] font-extrabold leading-tight"
+        >
+          Modern and Reliable Electrical Solutions
+        </motion.h1>
+        <div className="w-[100px] h-[4px] bg-[#D2243D] rounded" />
+        <p className="text-white text-base lg:text-lg leading-relaxed">
+          We specialize in electrical installations, smart surveillance, and pro
+          audio systems for homes and businesses. Let us help you stay connected
+          and secure.
+        </p>
         <motion.div
           initial="hidden"
           animate="visible"
           variants={zoomInVariants}
-          className='flex justify-center items-center gap-5'>
+          viewport={{ once: true }}
+          className="flex flex-wrap gap-4 mt-4"
+        >
           <motion.button
             variants={zoomInVariants}
-            className='bg-yellow-500 hover:bg-white hover:text-black px-10 py-3 rounded-lg text-black font-bold'>READ MORE</motion.button>
+            className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] px-6 py-3 rounded-md text-white font-semibold transition"
+          >
+            Explore Services
+          </motion.button>
           <motion.button
             variants={zoomInVariants}
-            className='border-white hover:border-yellow-500 hover:text-yellow-500 border-2 px-10 py-3 rounded-lg text-white font-bold'>REACH US</motion.button>
+            viewport={{ once: true }}
+            className="border-2 border-white hover:border-[#D2243D] hover:text-[#D2243D] px-6 py-3 rounded-md text-white font-semibold transition"
+          >
+            Contact Us
+          </motion.button>
         </motion.div>
       </motion.div>
-      <div className='w-[40%] flex flex-col justify-end items-end'>
-        <motion.img
-          initial="hidden"
-          whileInView="visible"
-          variants={zoomInVariants} src={heroimg} alt="hero image" className='lg:h-[600px] h-[300px] lg:mb-[-100px]' />
-      </div>
-    </div>
-  )
-}
 
-export default Hero
+      {/* Right Form */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={zoomInVariants}
+        viewport={{ once: true }}
+        className="relative z-10 w-full lg:w-[40%] bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-[0_8px_40px_rgba(255,255,255,0.1)] border border-white/10"
+      >
+        <h3 className="text-white text-2xl font-semibold mb-4">
+          Get a Free Quote
+        </h3>
+        <form className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
+          />
+          <textarea
+            rows="4"
+            placeholder="Your Message"
+            className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none resize-none"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-[#D2243D] text-white font-semibold py-3 rounded-md hover:bg-white hover:text-[#0E1825] transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;

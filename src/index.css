@@ -9,5 +9,6 @@
 }
 
 body {
-  background-color: rgb(36, 33, 33);
+  @apply bg-[#0E1825] text-white antialiased;
+    font-family: 'Poppins', sans-serif;
 }
