@@ -1,10 +1,10 @@
 import project1 from "../assets/project1.jpg";
 import project2 from "../assets/project2.jpg";
-import project3 from "../assets/project3.jpg";
+import project3 from "../assets/project3.jpeg";
 import project4 from "../assets/project4.jpg";
 import project5 from "../assets/project5.jpg";
 import project6 from "../assets/project6.jpg";
-import project7 from "../assets/project7.jpg";
+import project7 from "../assets/project7.png";
 import project8 from "../assets/project8.jpg";
 
 import { motion } from "framer-motion";
@@ -16,8 +16,8 @@ const projects = [
   { image: project3, title: "Audio Distribution System" },
   { image: project4, title: "Smart Panel Upgrade" },
   { image: project5, title: "Warehouse Surveillance" },
-  { image: project6, title: "Home Audio Zones" },
-  { image: project7, title: "Commercial Lighting" },
+  { image: project6, title: "Home Door Bell" },
+  { image: project7, title: "Custom House Led Numbers" },
   { image: project8, title: "Outdoor Camera Grid" },
 ];
 
