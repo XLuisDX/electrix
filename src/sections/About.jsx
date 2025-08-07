@@ -94,7 +94,7 @@ const About = () => {
 
         {/* Right Column */}
         <div className="relative z-10 lg:w-[40%] w-full flex flex-col justify-center items-start gap-6">
-          <p className="text-white text-lg text-justify leading-relaxed">
+          <p className="text-white text-lg lg:text-justify text-center leading-relaxed">
             At LyD Electrix LLC, we specialize in custom electrical solutions,
             surveillance camera systems, and professional audio installations.
             Whether you are building new or upgrading existing infrastructure,
