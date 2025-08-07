@@ -78,7 +78,7 @@ const Footer = () => {
           </h3>
           <div className="flex gap-4 mt-2">
             <a
-              href="https://facebook.com/lydelectrix"
+              href="https://www.facebook.com/share/1CEYFEm9T1/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"

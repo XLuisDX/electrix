@@ -80,24 +80,25 @@ export const clients = [
     image: client1,
     name: "Alex Parker",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
-    post: "Constructor",
+      "LyD Electrix transformed our entire home security system. The installation was smooth, and the results exceeded expectations.",
+    post: "Contractor",
   },
   {
     image: client2,
     name: "Drew James",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
+      "I was impressed with the attention to detail and professionalism. They handled everything from wiring to lighting flawlessly.",
     post: "Architect",
   },
   {
     image: client3,
     name: "Sam Peterson",
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida cursus",
-    post: "Builder",
+      "Great team! Reliable, fast, and knowledgeable. I recommend them to anyone looking for quality electrical work.",
+    post: "Project Manager",
   },
 ];
+
 
 export const planning = [
   {

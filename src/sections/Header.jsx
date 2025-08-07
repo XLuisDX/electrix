@@ -54,7 +54,8 @@ const Header = () => {
             className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-lg"
           />
           <span className="text-white text-xl md:text-2xl font-semibold tracking-wide sm:inline">
-            <span className="text-[#D2243D] italic">Electrix</span>
+            L&D
+            <span className="text-[#D2243D] italic"> Electrix</span>
           </span>
         </div>
 
