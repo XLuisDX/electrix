@@ -31,12 +31,7 @@ const Portfolio = () => {
       <motion.div
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 14, repeat: Infinity }}
-        className="absolute top-20 left-0 w-[250px] h-[250px] bg-[#D2243D]/20 blur-3xl rounded-full z-0"
-      />
-      <motion.div
-        animate={{ scale: [1, 0.9, 1] }}
-        transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-20 right-0 w-[200px] h-[200px] bg-white/10 blur-2xl rounded-full z-0"
+        className="absolute top-40 left-80 w-[150px] h-[150px] bg-[#D2243D]/20 blur-3xl rounded-full z-0"
       />
 
       <motion.div

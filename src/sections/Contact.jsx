@@ -11,12 +11,12 @@ const Contact = () => {
       <motion.div
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 14, repeat: Infinity }}
-        className="absolute top-0 left-0 w-[250px] h-[250px] bg-[#D2243D]/20 blur-3xl rounded-full z-0"
+        className="absolute top-40 left-80 w-[250px] h-[250px] bg-[#D2243D]/20 blur-3xl rounded-full z-0"
       />
       <motion.div
         animate={{ scale: [1, 0.9, 1] }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-0 right-0 w-[200px] h-[200px] bg-white/10 blur-2xl rounded-full z-0"
+        className="absolute bottom-20 right-60 w-[100px] h-[100px] bg-white/10 blur-2xl rounded-full z-0"
       />
 
       <div className="relative z-10 lg:w-[80%] w-full max-w-[1200px] m-auto flex lg:flex-row flex-col justify-between items-start gap-[60px]">
@@ -56,6 +56,32 @@ const Contact = () => {
             are here to help. Let’s talk about your electrical, security, or
             automation needs today.
           </motion.p>
+          {/* Contact Info Cards */}
+          <div className="grid md:grid-cols-3 grid-cols-1 gap-4 mt-6 w-full">
+            {/* Location */}
+            <div className="flex items-start gap-4 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
+              <div>
+                <h4 className="text-white font-semibold text-sm">Location</h4>
+                <p className="text-gray-300 text-sm">Dickson, TN</p>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-start gap-4 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
+              <div>
+                <h4 className="text-white font-semibold text-sm">Phone</h4>
+                <p className="text-gray-300 text-sm">(615) 555-1234</p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="flex items-start gap-4 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
+              <div>
+                <h4 className="text-white font-semibold text-sm">Email</h4>
+                <p className="text-gray-300 text-sm">contact@lydelectrix.com</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Right Side (Form) */}

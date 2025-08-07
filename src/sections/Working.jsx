@@ -1,4 +1,5 @@
 import { planning } from "../export";
+import backgroundImage from "../assets/working.jpg";
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
 
@@ -6,8 +7,11 @@ const Working = () => {
   return (
     <section
       id="working"
-      className="relative w-full bg-[#0E1825] py-[100px] px-6 lg:px-0 overflow-hidden"
+      className="relative w-full bg-[#0E1825] py-[100px] px-6 lg:px-0 overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
+      <div className="absolute inset-0 bg-[#0E1825]/70 z-0" />
+
       <motion.div
         initial="hidden"
         whileInView="visible"

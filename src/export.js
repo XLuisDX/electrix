@@ -16,6 +16,13 @@ import { LuConciergeBell } from "react-icons/lu";
 import { TfiPanel } from "react-icons/tfi";
 import { LuPackageCheck } from "react-icons/lu";
 
+import cameraImg from "./assets/camera.jpg";
+import audioImg from "./assets/audio.jpg";
+import lightsImg from "./assets/lights.jpg";
+import doorbellImg from "./assets/doorbell.jpg";
+import electricalImg from "./assets/electrical.jpg";
+import customImg from "./assets/custom.jpg";
+
 export const allservices = [
   {
     title: "Security Camera Installation",
@@ -23,7 +30,7 @@ export const allservices = [
     details:
       "We install, configure, and maintain smart surveillance systems for residential and commercial properties. Our solutions include motion detection, remote viewing, night vision, and integration with mobile apps. With cloud or local storage options and full HD recording, your property is always protected.",
     icon: PiSecurityCamera,
-    bg: "../src/assets/camera_service.jpg",
+    bg: cameraImg,
   },
   {
     title: "Audio System Integration",
@@ -31,7 +38,7 @@ export const allservices = [
     details:
       "Our audio system services include surround sound installation, multi-room audio zones, and public announcement systems. We design custom setups for both entertainment and operational needs, ensuring clarity, balance, and smart control via mobile or tablet.",
     icon: PiSpeakerHigh,
-    bg: "../src/assets/audio_service.jpg",
+    bg: audioImg,
   },
   {
     title: "Indoor & Outdoor Lighting",
@@ -39,7 +46,7 @@ export const allservices = [
     details:
       "We design and install indoor and outdoor lighting systems tailored to your needs—whether it’s ambiance, functionality, or security. Our solutions include smart switches, motion-triggered lights, pathway lighting, and energy-efficient LED conversions.",
     icon: GoLightBulb,
-    bg: "../src/assets/lights_service.jpg",
+    bg: lightsImg,
   },
   {
     title: "Smart Doorbells & Intercoms",
@@ -47,7 +54,7 @@ export const allservices = [
     details:
       "Upgrade your entry points with smart video doorbells and audio/video intercoms. Enjoy features like real-time mobile alerts, 2-way communication, visitor logs, and remote door unlock from your phone.",
     icon: LuConciergeBell,
-    bg: "../src/assets/doorbell_service.jpg",
+    bg: doorbellImg,
   },
   {
     title: "Electrical Panels & Wiring",
@@ -55,7 +62,7 @@ export const allservices = [
     details:
       "We handle new panel installations, upgrades, and full wiring services for residential and commercial properties. All work meets current codes and safety standards. We also offer troubleshooting, circuit mapping, and breaker replacement.",
     icon: TfiPanel,
-    bg: "../src/assets/electrical_panel.jpg",
+    bg: electricalImg,
   },
   {
     title: "Custom Surveillance Packages",
@@ -63,9 +70,10 @@ export const allservices = [
     details:
       "Our surveillance packages are fully customizable to your layout, risk level, and budget. Options include indoor/outdoor cameras, dome or bullet cams, NVR/DVR systems, license plate capture, and mobile access. We offer complete consultation and maintenance plans.",
     icon: LuPackageCheck,
-    bg: "../src/assets/custom_service.jpg",
+    bg: customImg,
   },
 ];
+
 
 export const clients = [
   {

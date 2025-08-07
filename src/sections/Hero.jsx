@@ -1,6 +1,8 @@
 import backgroundImage from "../assets/homeimg.jpg";
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
+import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const Hero = () => {
   return (
@@ -64,14 +66,18 @@ const Hero = () => {
             variants={zoomInVariants}
             className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] px-6 py-3 rounded-md text-white font-semibold transition"
           >
-            Explore Services
+            <Link to="services" spy={true} offset={-100} smooth={true}>
+              Explore Services
+            </Link>
           </motion.button>
           <motion.button
             variants={zoomInVariants}
             viewport={{ once: true }}
             className="border-2 border-white hover:border-[#D2243D] hover:text-[#D2243D] px-6 py-3 rounded-md text-white font-semibold transition"
           >
-            Contact Us
+            <Link to="contact" spy={true} offset={-100} smooth={true}>
+              Contact Us
+            </Link>
           </motion.button>
         </motion.div>
       </motion.div>
@@ -110,7 +116,35 @@ const Hero = () => {
             Send Message
           </button>
         </form>
+        {/* Contact Info Cards */}
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-6 w-full">
+          {/* Phone */}
+          <div className="flex items-start gap-2 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
+            <div>
+              <h4 className="text-white font-semibold text-sm">Phone</h4>
+              <p className="text-gray-300 text-sm">(615) 428-9475</p>
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-start gap-2 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
+            <div>
+              <h4 className="text-white font-semibold text-sm">Email</h4>
+              <p className="text-gray-300 text-sm">contact@lydelectrix.com</p>
+            </div>
+          </div>
+        </div>
       </motion.div>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/16154289475?text=Hello%20LyD%20Electrix!%20I’d%20like%20to%20request%20a%20quote."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe5d] text-white p-4 rounded-full shadow-lg transition"
+      >
+        <FaWhatsapp />
+      </a>
     </section>
   );
 };

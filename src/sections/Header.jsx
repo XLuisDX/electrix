@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { Link } from "react-scroll";
 import favicon from "../assets/favicon.png";
+import { AnimatePresence, motion } from "framer-motion";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +27,16 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (isMenuOpen) {
+      disableBodyScroll(body);
+    } else {
+      enableBodyScroll(body);
+    }
+    return () => enableBodyScroll(body);
+  }, [isMenuOpen]);
 
   return (
     <header
@@ -82,30 +94,52 @@ const Header = () => {
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className="lg:hidden bg-[#D2243D] w-full px-6 pb-4">
-          <ul className="flex flex-col gap-3">
-            {navItems.map(({ link, path }) => (
-              <Link
-                key={path}
-                className="text-white uppercase font-medium cursor-pointer py-2 text-center rounded-lg hover:bg-white hover:text-[#0E1825] transition"
-                to={path}
-                spy={true}
-                offset={-100}
-                smooth={true}
-                onClick={closeMenu}
-              >
-                {link}
-              </Link>
-            ))}
-          </ul>
-          <div className="mt-4 flex justify-center">
-            <button className="bg-white text-[#0E1825] font-semibold px-6 py-2 rounded-full hover:bg-[#0E1825] hover:text-white transition">
-              Book Now
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 h-screen bg-[#0E1825] text-white flex flex-col justify-center items-center z-[9999] gap-12 overflow-y-auto px-6"
+          >
+            <button
+              onClick={closeMenu}
+              className="absolute top-6 right-6 text-4xl text-[#D2243D] hover:text-white transition"
+            >
+              <FaXmark />
             </button>
-          </div>
-        </div>
-      )}
+
+            <ul className="flex flex-col gap-8 text-2xl uppercase font-semibold text-center">
+              {navItems.map(({ link, path }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  className="cursor-pointer hover:text-[#D2243D] transition"
+                  onClick={closeMenu}
+                >
+                  {link}
+                </Link>
+              ))}
+            </ul>
+
+            <Link
+              to="contact"
+              spy={true}
+              offset={-100}
+              smooth={true}
+              onClick={closeMenu}
+              className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] text-white px-8 py-3 rounded-full font-bold text-lg transition"
+            >
+              Book Now
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
