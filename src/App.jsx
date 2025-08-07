@@ -7,6 +7,7 @@ import Portfolio from "./sections/Portfolio";
 import Services from "./sections/Services";
 import Testimonials from "./sections/Testimonials";
 import Working from "./sections/Working";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
       <Testimonials />
       <Contact />
       <Footer />
+      <ScrollToTopButton />
     </>
   );
 }

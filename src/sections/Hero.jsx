@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
 import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -132,6 +133,32 @@ const Hero = () => {
               <h4 className="text-white font-semibold text-sm">Email</h4>
               <p className="text-gray-300 text-sm">contact@lydelectrix.com</p>
             </div>
+          </div>
+        </div>
+        {/* Social Media Links */}
+        <div className="mt-6">
+          <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">
+            Follow Us
+          </h4>
+          <div className="flex gap-4">
+            <a
+              href="https://facebook.com/lydelectrix"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-10 h-10 flex justify-center items-center rounded-full bg-white/10 hover:bg-[#D2243D] text-white hover:text-white transition"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://instagram.com/lydelectrix"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-10 h-10 flex justify-center items-center rounded-full bg-white/10 hover:bg-[#D2243D] text-white hover:text-white transition"
+            >
+              <FaInstagram />
+            </a>
           </div>
         </div>
       </motion.div>
