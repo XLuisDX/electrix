@@ -1,7 +1,26 @@
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    phone: "",
+  });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = () => {
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "", phone: "" });
+    }, 500);
+  };
+
   return (
     <section
       id="contact"
@@ -86,6 +105,10 @@ const Contact = () => {
 
         {/* Right Side (Form) */}
         <motion.form
+          action={`mailto:info@lydelectrix.com`}
+          method="POST"
+          encType="text/plain"
+          onSubmit={handleSubmit}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -94,22 +117,36 @@ const Contact = () => {
         >
           <input
             type="text"
+            name="name"
             placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
             className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
           />
           <input
             type="email"
-            placeholder="Email Address"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
             className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
           />
           <input
             type="tel"
-            placeholder="Phone Number"
+            name="phone"
+            placeholder="Your Phone number"
+            value={formData.phone}
+            onChange={handleChange}
             className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
           />
           <textarea
+            name="message"
             rows="4"
             placeholder="Your Message"
+            value={formData.message}
+            required
+            onChange={handleChange}
             className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none resize-none"
           ></textarea>
           <button

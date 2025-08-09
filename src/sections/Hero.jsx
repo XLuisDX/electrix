@@ -4,8 +4,28 @@ import { slideUpVariants, zoomInVariants } from "./animation";
 import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { useState } from "react";
 
 const Hero = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [showNotification, setShowNotification] = useState(false);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = () => {
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "" });
+      setShowNotification(true);
+      setTimeout(() => setShowNotification(false), 4000);
+    }, 500);
+  };
   return (
     <section
       id="hero"
@@ -94,29 +114,56 @@ const Hero = () => {
         <h3 className="text-white text-2xl font-semibold mb-4">
           Get a Free Quote
         </h3>
-        <form className="flex flex-col gap-4">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
-          />
-          <textarea
-            rows="4"
-            placeholder="Your Message"
-            className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none resize-none"
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-[#D2243D] text-white font-semibold py-3 rounded-md hover:bg-white hover:text-[#0E1825] transition"
+        <div className="relative">
+          {showNotification && (
+            <div className="fixed top-6 right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50">
+              We have received your message, we will contact you shortly.
+            </div>
+          )}
+
+          <form
+            action={`mailto:info@lydelectrix.com`}
+            method="POST"
+            encType="text/plain"
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
           >
-            Send Message
-          </button>
-        </form>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
+            />
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none resize-none"
+            ></textarea>
+            <button
+              type="submit"
+              className="bg-[#D2243D] text-white font-semibold py-3 rounded-md hover:bg-white hover:text-[#0E1825] transition"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
         {/* Contact Info Cards */}
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-6 w-full">
           {/* Phone */}
