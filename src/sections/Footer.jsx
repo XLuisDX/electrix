@@ -20,7 +20,7 @@ const Footer = () => {
               className="w-10 h-10 object-contain"
             />
             <h2 className="text-2xl font-bold">
-              LyD <span className="text-[#D2243D] italic">Electrix</span>
+              L&D <span className="text-[#D2243D] italic">Electrix</span>
             </h2>
           </div>
           <p className="text-sm text-gray-300">
@@ -103,7 +103,7 @@ const Footer = () => {
       <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-gray-400 flex flex-col items-center gap-2">
         <div className="flex items-center gap-1">
           <FaCopyright className="text-[#D2243D]" />
-          <p>{year} LyD Electrix LLC — All Rights Reserved</p>
+          <p>{year} L&D Electrix LLC — All Rights Reserved</p>
         </div>
       </div>
     </footer>

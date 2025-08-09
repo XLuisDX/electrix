@@ -16,7 +16,7 @@ import { LuConciergeBell } from "react-icons/lu";
 import { TfiPanel } from "react-icons/tfi";
 import { LuPackageCheck } from "react-icons/lu";
 
-import cameraImg from "./assets/camera.jpg";
+import cameraImg from "./assets/camera.jpeg";
 import audioImg from "./assets/audio.jpg";
 import lightsImg from "./assets/lights.jpg";
 import doorbellImg from "./assets/doorbell.jpg";
@@ -74,13 +74,12 @@ export const allservices = [
   },
 ];
 
-
 export const clients = [
   {
     image: client1,
     name: "Alex Parker",
     about:
-      "LyD Electrix transformed our entire home security system. The installation was smooth, and the results exceeded expectations.",
+      "L&D Electrix transformed our entire home security system. The installation was smooth, and the results exceeded expectations.",
     post: "Contractor",
   },
   {

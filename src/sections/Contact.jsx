@@ -78,7 +78,7 @@ const Contact = () => {
             <div className="flex items-start gap-4 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
               <div>
                 <h4 className="text-white font-semibold text-sm">Email</h4>
-                <p className="text-gray-300 text-sm">contact@lydelectrix.com</p>
+                <p className="text-gray-300 text-sm">info@lydelectrix.com</p>
               </div>
             </div>
           </div>

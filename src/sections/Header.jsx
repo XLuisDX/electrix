@@ -50,7 +50,7 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <img
             src={favicon}
-            alt="LyD Electrix"
+            alt="L&D Electrix"
             className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-lg"
           />
           <span className="text-white text-xl md:text-2xl font-semibold tracking-wide sm:inline">
