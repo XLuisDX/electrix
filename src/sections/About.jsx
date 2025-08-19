@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { slideUpVariants, zoomInVariants } from "./animation";
+import { slideUpVariants } from "./animation";
 import { FaBolt, FaShieldAlt, FaCogs } from "react-icons/fa";
 
 const About = () => {
@@ -101,13 +101,6 @@ const About = () => {
             our team brings expert craftsmanship, high-end technology, and full
             commitment to safety.
           </p>
-          <motion.button
-            variants={zoomInVariants}
-            viewport={{ once: true }}
-            className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] px-10 py-3 rounded-lg text-white font-semibold transition"
-          >
-            Learn More
-          </motion.button>
         </div>
       </motion.div>
     </section>

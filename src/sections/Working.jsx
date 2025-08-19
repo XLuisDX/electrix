@@ -52,7 +52,7 @@ const Working = () => {
               variants={zoomInVariants}
               className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-white shadow-xl flex flex-col items-center gap-4 transition duration-300 hover:scale-[1.03]"
             >
-              <div className="w-[80px] h-[80px] bg-[#D2243D] flex items-center justify-center rounded-full shadow-lg transition hover:bg-white hover:text-[#0E1825]">
+              <div className="w-[80px] h-[80px] bg-[#D2243D] flex items-center justify-center rounded-full shadow-lg transition hover:text-[#0E1825]">
                 <item.icon className="text-white text-3xl" />
               </div>
               <h3 className="text-xl font-semibold text-center uppercase">

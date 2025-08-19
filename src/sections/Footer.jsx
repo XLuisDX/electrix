@@ -63,10 +63,10 @@ const Footer = () => {
               <FaMapMarkerAlt /> Dickson, TN
             </li>
             <li className="flex items-center gap-2">
-              <FaPhoneAlt /> (615) 555-1234
+              <FaPhoneAlt /> (615) 428-9475
             </li>
             <li className="flex items-center gap-2">
-              <FaEnvelope /> contact@lydelectrix.com
+              <FaEnvelope /> info@lydelectrix.com
             </li>
           </ul>
         </div>
