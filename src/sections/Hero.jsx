@@ -1,9 +1,8 @@
 import backgroundImage from "../assets/homeimg.jpg";
 import { motion } from "framer-motion";
 import { slideUpVariants, zoomInVariants } from "./animation";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Link } from "react-scroll";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { useState } from "react";
 
 const Hero = () => {
@@ -13,12 +12,14 @@ const Hero = () => {
     message: "",
   });
   const [showNotification, setShowNotification] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = () => {
     setTimeout(() => {
       setFormData({ name: "", email: "", message: "" });
@@ -26,199 +27,199 @@ const Hero = () => {
       setTimeout(() => setShowNotification(false), 4000);
     }, 500);
   };
+
   return (
     <section
       id="hero"
-      className="relative w-full min-h-screen flex flex-col lg:flex-row justify-between items-center gap-10 px-6 lg:px-[150px] pt-[140px] pb-10 bg-cover bg-center overflow-hidden"
+      className="relative w-full min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-6 lg:px-20 xl:px-32 pt-32 pb-20 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="absolute inset-0 bg-[#0E1825]/70 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/85 to-slate-950/90 z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/10 via-transparent to-transparent z-0" />
 
-      {/* Decorative Shapes */}
       <motion.div
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-        viewport={{ once: true }}
-        className="absolute top-10 left-10 w-28 h-28 bg-[#D2243D]/30 blur-2xl rounded-full z-0"
+        animate={{ y: [0, -30, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 left-10 w-32 h-32 bg-red-500/20 blur-3xl rounded-full z-0"
       />
       <motion.div
-        animate={{ x: [0, 20, 0] }}
-        transition={{ duration: 5, repeat: Infinity }}
-        viewport={{ once: true }}
-        className="absolute bottom-10 right-10 w-20 h-20 bg-white/10 blur-2xl rounded-full z-0"
+        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-20 right-10 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full z-0"
       />
 
-      {/* Left Text */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={slideUpVariants}
-        className="relative z-10 lg:w-[55%] w-full flex flex-col justify-center items-start gap-6 text-left"
+        className="relative z-10 lg:w-[55%] w-full flex flex-col justify-center items-start gap-8 max-w-2xl"
       >
-        <motion.h2
+        <motion.div
           variants={slideUpVariants}
-          viewport={{ once: true }}
-          className="text-[#D2243D] text-xl font-semibold tracking-widest uppercase"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20"
         >
-          Powering Tennessee
-        </motion.h2>
+          <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+          <span className="text-red-400 text-sm font-semibold tracking-wider uppercase">
+            Powering Tennessee
+          </span>
+        </motion.div>
+
         <motion.h1
-          viewport={{ once: true }}
           variants={slideUpVariants}
-          className="text-white uppercase text-[40px] lg:text-[54px] font-extrabold leading-tight"
+          className="text-white text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight"
         >
-          Modern and Reliable Electrical Solutions
+          Modern and Reliable
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+            Electrical Solutions
+          </span>
         </motion.h1>
-        <div className="w-[100px] h-[4px] bg-[#D2243D] rounded" />
-        <p className="text-white text-base lg:text-lg leading-relaxed">
+
+        <motion.p
+          variants={slideUpVariants}
+          className="text-slate-300 text-lg lg:text-xl leading-relaxed max-w-xl"
+        >
           We specialize in electrical installations, smart surveillance, and pro
           audio systems for homes and businesses. Let us help you stay connected
           and secure.
-        </p>
+        </motion.p>
+
         <motion.div
-          initial="hidden"
-          animate="visible"
           variants={zoomInVariants}
-          viewport={{ once: true }}
-          className="flex flex-wrap gap-4 mt-4"
+          className="flex flex-wrap gap-4 mt-2"
         >
-          <motion.button
-            variants={zoomInVariants}
-            className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] px-6 py-3 rounded-md text-white font-semibold transition"
-          >
-            <Link to="services" spy={true} offset={-100} smooth={true}>
+          <Link to="services" spy={true} offset={-100} smooth={true}>
+            <button className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-red-500/30 hover:shadow-red-500/50 hover:scale-105 transition-all duration-300">
               Explore Services
-            </Link>
-          </motion.button>
-          <motion.button
-            variants={zoomInVariants}
-            viewport={{ once: true }}
-            className="border-2 border-white hover:border-[#D2243D] hover:text-[#D2243D] px-6 py-3 rounded-md text-white font-semibold transition"
-          >
-            <Link to="contact" spy={true} offset={-100} smooth={true}>
+            </button>
+          </Link>
+          <Link to="contact" spy={true} offset={-100} smooth={true}>
+            <button className="border-2 border-slate-600 hover:border-red-500 text-white hover:text-red-400 px-8 py-3.5 rounded-full font-semibold backdrop-blur-sm hover:bg-red-500/10 transition-all duration-300">
               Contact Us
-            </Link>
-          </motion.button>
+            </button>
+          </Link>
         </motion.div>
       </motion.div>
 
-      {/* Right Form */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         variants={zoomInVariants}
         viewport={{ once: true }}
-        className="relative z-10 w-full lg:w-[40%] bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-[0_8px_40px_rgba(255,255,255,0.1)] border border-white/10"
+        className="relative z-10 w-full lg:w-[40%] max-w-md bg-slate-900/40 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-slate-800/50"
       >
-        <h3 className="text-white text-2xl font-semibold mb-4">
-          Get a Free Quote
-        </h3>
-        <div className="relative">
-          {showNotification && (
-            <div className="fixed top-6 right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50">
-              We have received your message, we will contact you shortly.
-            </div>
-          )}
+        <h3 className="text-white text-2xl font-bold mb-6">Get a Free Quote</h3>
 
-          <form
-            action={`mailto:info@lydelectrix.com`}
-            method="POST"
-            encType="text/plain"
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
+        {showNotification && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-24 right-6 bg-gradient-to-r from-green-600 to-green-500 text-white px-6 py-4 rounded-2xl shadow-2xl z-[60] backdrop-blur-sm border border-green-400/20"
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none"
-            />
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="px-4 py-3 rounded-md bg-white/10 text-white placeholder-white/70 focus:outline-none resize-none"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-[#D2243D] text-white font-semibold py-3 rounded-md hover:bg-white hover:text-[#0E1825] transition"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+            <p className="font-medium">
+              Message received! We will contact you shortly.
+            </p>
+          </motion.div>
+        )}
 
-        {/* Contact Info Cards */}
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mt-6 w-full">
-          {/* Phone */}
-          <div className="flex items-start gap-2 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
-            <div>
-              <h4 className="text-white font-semibold text-sm">Phone</h4>
-              <p className="text-gray-300 text-sm">(615) 428-9475</p>
-            </div>
+        <form
+          action={`mailto:info@lydelectrix.com`}
+          method="POST"
+          encType="text/plain"
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="px-4 py-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:border-transparent transition-all duration-300"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="px-4 py-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:border-transparent transition-all duration-300"
+          />
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="px-4 py-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:border-transparent resize-none transition-all duration-300"
+          />
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-red-500/30 hover:shadow-red-500/50 hover:scale-[1.02] transition-all duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div className="grid grid-cols-2 gap-3 mt-6">
+          <div className="bg-slate-800/30 backdrop-blur-sm p-4 rounded-xl border border-slate-700/30 hover:border-slate-600/50 transition-colors duration-300">
+            <h4 className="text-slate-400 text-xs font-medium uppercase tracking-wide mb-1">
+              Phone
+            </h4>
+            <p className="text-white font-semibold text-sm">(615) 428-9475</p>
           </div>
 
-          {/* Email */}
-          <div className="flex items-start gap-2 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10">
-            <div>
-              <h4 className="text-white font-semibold text-sm">Email</h4>
-              <p className="text-gray-300 text-sm">info@lydelectrix.com</p>
-            </div>
+          <div className="bg-slate-800/30 backdrop-blur-sm p-4 rounded-xl border border-slate-700/30 hover:border-slate-600/50 transition-colors duration-300">
+            <h4 className="text-slate-400 text-xs font-medium uppercase tracking-wide mb-1">
+              Email
+            </h4>
+            <p className="text-white font-semibold text-sm">
+              info@lydelectrix.com
+            </p>
           </div>
         </div>
-        {/* Social Media Links */}
-        <div className="mt-6">
-          <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">
+
+        <div className="mt-6 pt-6 border-t border-slate-700/30">
+          <h4 className="text-slate-400 text-xs font-medium uppercase tracking-wide mb-3">
             Follow Us
           </h4>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <a
               href="https://www.facebook.com/share/1CEYFEm9T1/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="w-10 h-10 flex justify-center items-center rounded-full bg-white/10 hover:bg-[#D2243D] text-white hover:text-white transition"
+              className="w-11 h-11 flex justify-center items-center rounded-xl bg-slate-800/50 border border-slate-700/30 hover:bg-red-500 hover:border-red-500 text-slate-300 hover:text-white transition-all duration-300 hover:scale-110"
             >
-              <FaFacebookF />
+              <FaFacebookF className="text-lg" />
             </a>
             <a
               href="https://instagram.com/lydelectrix"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-10 h-10 flex justify-center items-center rounded-full bg-white/10 hover:bg-[#D2243D] text-white hover:text-white transition"
+              className="w-11 h-11 flex justify-center items-center rounded-xl bg-slate-800/50 border border-slate-700/30 hover:bg-red-500 hover:border-red-500 text-slate-300 hover:text-white transition-all duration-300 hover:scale-110"
             >
-              <FaInstagram />
+              <FaInstagram className="text-lg" />
             </a>
           </div>
         </div>
       </motion.div>
 
-      {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/16154289475?text=Hello%20LyD%20Electrix!%20I’d%20like%20to%20request%20a%20quote."
+      <motion.a
+        href="https://wa.me/16154289475?text=Hello%20LyD%20Electrix!%20I'd%20like%20to%20request%20a%20quote."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe5d] text-white p-4 rounded-full shadow-lg transition"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white p-4 rounded-full shadow-2xl shadow-green-500/40 hover:shadow-green-500/60 transition-all duration-300"
       >
-        <FaWhatsapp />
-      </a>
+        <FaWhatsapp className="text-2xl" />
+      </motion.a>
     </section>
   );
 };

@@ -11,17 +11,22 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function App() {
   return (
-    <>
+    <div className="relative min-h-screen">
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent" />
+
       <Header />
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <Working />
-      <Testimonials />
-      <Contact />
+      <main className="relative">
+        <Hero />
+        <About />
+        <Services />
+        <Portfolio />
+        <Working />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
       <ScrollToTopButton />
-    </>
+    </div>
   );
 }

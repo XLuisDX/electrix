@@ -40,30 +40,33 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full fixed top-0 z-50 transition-all duration-300 ${
+      className={`w-full fixed top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0E1825]/70 backdrop-blur-md shadow-md"
-          : "bg-[#0E1825]/20"
+          ? "bg-slate-950/80 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-slate-800/50"
+          : "bg-transparent"
       }`}
     >
-      <div className="flex justify-between items-center gap-2 lg:px-16 px-6 py-4">
-        <div className="flex items-center gap-3">
-          <img
-            src={favicon}
-            alt="L&D Electrix"
-            className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-lg"
-          />
-          <span className="text-white text-xl md:text-2xl font-semibold tracking-wide sm:inline">
+      <div className="max-w-7xl mx-auto flex justify-between items-center gap-4 lg:px-12 px-6 py-5">
+        <div className="flex items-center gap-3 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-red-500/20 rounded-full blur-md group-hover:bg-red-500/30 transition-all duration-300" />
+            <img
+              src={favicon}
+              alt="L&D Electrix"
+              className="relative w-10 h-10 md:w-11 md:h-11 object-contain drop-shadow-2xl"
+            />
+          </div>
+          <span className="text-white text-xl md:text-2xl font-bold tracking-tight">
             L&D
-            <span className="text-[#D2243D] italic"> Electrix</span>
+            <span className="text-red-500 font-light italic"> Electrix</span>
           </span>
         </div>
 
-        <ul className="lg:flex justify-center items-center gap-6 hidden">
+        <nav className="lg:flex justify-center items-center gap-2 hidden">
           {navItems.map(({ link, path }) => (
             <Link
               key={path}
-              className="text-white uppercase font-medium cursor-pointer px-4 py-2 rounded-lg hover:bg-[#D2243D] hover:text-white transition duration-300"
+              className="text-slate-300 text-sm font-medium cursor-pointer px-4 py-2.5 rounded-lg hover:bg-slate-800/50 hover:text-white transition-all duration-300"
               to={path}
               spy={true}
               offset={-100}
@@ -72,11 +75,11 @@ const Header = () => {
               {link}
             </Link>
           ))}
-        </ul>
+        </nav>
 
         <div className="hidden md:flex">
           <Link
-            className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] text-white px-6 py-2 rounded-full font-semibold transition duration-300"
+            className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-lg shadow-red-500/30 hover:shadow-red-500/50 hover:scale-105 transition-all duration-300 cursor-pointer"
             to="contact"
             spy={true}
             offset={-100}
@@ -86,58 +89,78 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="flex lg:hidden" onClick={toggleMenu}>
+        <button
+          className="flex lg:hidden p-2 rounded-lg hover:bg-slate-800/50 transition-colors duration-300"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           {isMenuOpen ? (
-            <FaXmark className="text-[#D2243D] text-3xl cursor-pointer" />
+            <FaXmark className="text-red-500 text-2xl" />
           ) : (
-            <FaBars className="text-[#D2243D] text-3xl cursor-pointer" />
+            <FaBars className="text-red-500 text-2xl" />
           )}
-        </div>
+        </button>
       </div>
 
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             key="mobile-menu"
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 h-screen bg-[#0E1825] text-white flex flex-col justify-center items-center z-[9999] gap-12 overflow-y-auto px-6"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 h-screen bg-slate-950 text-white flex flex-col justify-center items-center z-[9999] overflow-y-auto"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-red-950/10 via-transparent to-transparent" />
+
             <button
               onClick={closeMenu}
-              className="absolute top-6 right-6 text-4xl text-[#D2243D] hover:text-white transition"
+              className="absolute top-6 right-6 p-3 rounded-full hover:bg-slate-800/50 transition-all duration-300"
+              aria-label="Close menu"
             >
-              <FaXmark />
+              <FaXmark className="text-3xl text-red-500" />
             </button>
 
-            <ul className="flex flex-col gap-8 text-2xl uppercase font-semibold text-center">
-              {navItems.map(({ link, path }) => (
-                <Link
+            <nav className="relative flex flex-col gap-6 text-center">
+              {navItems.map(({ link, path }, index) => (
+                <motion.div
                   key={path}
-                  to={path}
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  className="cursor-pointer hover:text-[#D2243D] transition"
-                  onClick={closeMenu}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {link}
-                </Link>
+                  <Link
+                    to={path}
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    className="text-2xl font-medium text-slate-300 hover:text-white cursor-pointer transition-colors duration-300"
+                    onClick={closeMenu}
+                  >
+                    {link}
+                  </Link>
+                </motion.div>
               ))}
-            </ul>
+            </nav>
 
-            <Link
-              to="contact"
-              spy={true}
-              offset={-100}
-              smooth={true}
-              onClick={closeMenu}
-              className="bg-[#D2243D] hover:bg-white hover:text-[#0E1825] text-white px-8 py-3 rounded-full font-bold text-lg transition"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-12"
             >
-              Book Now
-            </Link>
+              <Link
+                to="contact"
+                spy={true}
+                offset={-100}
+                smooth={true}
+                onClick={closeMenu}
+                className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-10 py-3.5 rounded-full font-semibold text-lg shadow-lg shadow-red-500/30 hover:shadow-red-500/50 hover:scale-105 transition-all duration-300 cursor-pointer inline-block"
+              >
+                Book Now
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

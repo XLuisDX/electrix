@@ -6,103 +6,132 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative bg-[#0E1825] lg:py-[100px] py-[60px] px-6 lg:px-0 overflow-hidden"
+      className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 lg:py-24 py-16 px-6 overflow-hidden"
     >
-      <motion.div
-        animate={{ scale: [1, 0.9, 1] }}
-        transition={{ duration: 10, repeat: Infinity }}
-        viewport={{ once: true }}
-        className="absolute bottom-20 right-40 w-[300px] h-[300px] bg-white/10 blur-2xl rounded-full z-0"
-      />
-      <motion.div
-        animate={{ scale: [1, 0.9, 1] }}
-        transition={{ duration: 10, repeat: Infinity }}
-        viewport={{ once: true }}
-        className="absolute bottom-20 right-30 w-[100px] h-[100px] bg-white/10 blur-2xl rounded-full z-0"
-      />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-900/10 via-transparent to-transparent" />
 
       <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={slideUpVariants}
-        viewport={{ once: true }}
-        className="lg:w-[80%] w-full max-w-[1200px] m-auto flex flex-col lg:flex-row justify-between items-start gap-[60px]"
-      >
-        {/* Background Shape */}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 right-20 w-96 h-96 bg-red-500/10 blur-3xl rounded-full"
+      />
+      <motion.div
+        animate={{ scale: [1, 0.8, 1], opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-40 left-20 w-80 h-80 bg-blue-500/10 blur-3xl rounded-full"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 10, repeat: Infinity }}
+          initial="hidden"
+          whileInView="visible"
+          variants={slideUpVariants}
           viewport={{ once: true }}
-          className="absolute top-[-100px] right-[-100px] w-[250px] h-[250px] bg-[#D2243D]/10 blur-3xl rounded-full z-0"
-        />
+          className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-20"
+        >
+          <div className="lg:w-[55%] w-full flex flex-col justify-center items-start gap-8">
+            <motion.div
+              variants={slideUpVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20"
+            >
+              <span className="text-red-400 text-sm font-semibold tracking-wider uppercase">
+                Who We Are
+              </span>
+            </motion.div>
 
-        {/* Left Column */}
-        <div className="relative z-10 lg:w-[60%] w-full flex flex-col justify-center items-start gap-6">
-          <motion.h2
-            variants={slideUpVariants}
-            viewport={{ once: true }}
-            className="text-[#D2243D] text-xl font-semibold uppercase tracking-widest"
-          >
-            Who We Are
-          </motion.h2>
-          <motion.h1
-            variants={slideUpVariants}
-            viewport={{ once: true }}
-            className="text-white uppercase text-[38px] lg:text-[46px] font-extrabold"
-          >
-            Experts in Power, Security & Smart Systems
-          </motion.h1>
-          <div className="w-[100px] h-[4px] bg-[#D2243D] rounded" />
-          <p className="text-xl italic text-gray-200 mt-4 leading-snug">
-            More than just electricians — we deliver safety, innovation, and
-            peace of mind for homes and businesses across Tennessee.
-          </p>
+            <motion.h1
+              variants={slideUpVariants}
+              className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
+            >
+              Experts in Power, Security &
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                Smart Systems
+              </span>
+            </motion.h1>
 
-          {/* Core Values / Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
-            <div className="flex items-start gap-4">
-              <FaBolt className="text-[#D2243D] text-2xl mt-1" />
-              <div>
-                <h4 className="text-white font-bold text-lg">Reliable Power</h4>
-                <p className="text-gray-300 text-sm leading-snug">
-                  Safe and efficient electrical systems for every property.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <FaShieldAlt className="text-[#D2243D] text-2xl mt-1" />
-              <div>
-                <h4 className="text-white font-bold text-lg">Security First</h4>
-                <p className="text-gray-300 text-sm leading-snug">
-                  Smart surveillance that protects what matters most.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <FaCogs className="text-[#D2243D] text-2xl mt-1" />
-              <div>
-                <h4 className="text-white font-bold text-lg">
-                  Tech Integration
-                </h4>
-                <p className="text-gray-300 text-sm leading-snug">
-                  Modern systems that work seamlessly with your lifestyle.
-                </p>
-              </div>
-            </div>
+            <motion.p
+              variants={slideUpVariants}
+              className="text-slate-300 text-xl leading-relaxed"
+            >
+              More than just electricians — we deliver safety, innovation, and
+              peace of mind for homes and businesses across Tennessee.
+            </motion.p>
+
+            <motion.div
+              variants={slideUpVariants}
+              className="grid grid-cols-1 gap-5 w-full mt-4"
+            >
+              {[
+                {
+                  icon: FaBolt,
+                  title: "Reliable Power",
+                  description:
+                    "Safe and efficient electrical systems for every property.",
+                },
+                {
+                  icon: FaShieldAlt,
+                  title: "Security First",
+                  description:
+                    "Smart surveillance that protects what matters most.",
+                },
+                {
+                  icon: FaCogs,
+                  title: "Tech Integration",
+                  description:
+                    "Modern systems that work seamlessly with your lifestyle.",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={slideUpVariants}
+                  className="group flex items-start gap-4 p-5 rounded-2xl bg-slate-800/30 border border-slate-700/30 hover:border-red-500/30 hover:bg-slate-800/50 transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-red-500/10 group-hover:bg-red-500/20 transition-colors duration-300">
+                    <item.icon className="text-red-500 text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold text-lg mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-        </div>
 
-        {/* Right Column */}
-        <div className="relative z-10 lg:w-[40%] w-full flex flex-col justify-center items-start gap-6">
-          <p className="text-white text-lg lg:text-justify text-center leading-relaxed">
-            At L&D Electrix LLC, we specialize in custom electrical solutions,
-            surveillance camera systems, and professional audio installations.
-            Whether you are building new or upgrading existing infrastructure,
-            our team brings expert craftsmanship, high-end technology, and full
-            commitment to safety.
-          </p>
-        </div>
-      </motion.div>
+          <motion.div
+            variants={slideUpVariants}
+            className="lg:w-[40%] w-full flex flex-col justify-center gap-6"
+          >
+            <div className="p-8 rounded-3xl bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
+              <p className="text-slate-300 text-lg leading-relaxed">
+                At L&D Electrix LLC, we specialize in custom electrical
+                solutions, surveillance camera systems, and professional audio
+                installations.
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed mt-4">
+                Whether you are building new or upgrading existing
+                infrastructure, our team brings expert craftsmanship, high-end
+                technology, and full commitment to safety.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-1">10+</div>
+                <div className="text-slate-400 text-sm">Years Experience</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/20 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-1">500+</div>
+                <div className="text-slate-400 text-sm">Projects Completed</div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
